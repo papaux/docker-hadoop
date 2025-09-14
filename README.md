@@ -131,6 +131,19 @@ Using `Eclipse` or other IDEs to generate a `jar` file. Copy it to `./jobs/jars`
 
 And your data will go to `./jobs/data`, then using `./hdfs dfs -copyFromLocal` to copy it to HDFS.
 
+# Development
+
+Build the image locally
+
+```shell
+make -f Makefile-x build
+```
+
+Build and push the image to Dockerhub
+
+```shell
+make -f Makefile-x push
+```
 
 # Credits
 The repo is inspired by [@big-data-europe](https://github.com/big-data-europe/docker-hadoop). Without their work, it may take me days to get this done.

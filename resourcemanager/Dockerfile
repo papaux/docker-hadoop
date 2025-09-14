@@ -1,8 +1,7 @@
-FROM wxwmatt/hadoop-base:2.1.1-hadoop3.3.1-java8
+FROM wxwmatt/hadoop-base:3.0.0-hadoop3.4.2-java11
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      python3.6
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+      python3.11
 
 HEALTHCHECK CMD curl -f http://localhost:8088/ || exit 1
 

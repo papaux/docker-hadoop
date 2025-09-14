@@ -1,4 +1,4 @@
-FROM wxwmatt/hadoop-base:2.1.1-hadoop3.3.1-java8
+FROM wxwmatt/hadoop-base:3.0.0-hadoop3.4.2-java11
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -7,25 +7,30 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       wget
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      python3.7-dev \
-      python3.7 \
+      python3.11-dev \
+      python3.11 \
+      python3-venv \
       python3-pip
 
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+ENV VENV_DIR=/opt/venv
+RUN python3 -m venv $VENV_DIR
+ENV PATH="$VENV_DIR/bin:$PATH"
 
-RUN pip3 install wheel
-RUN pip3 install setuptools
-RUN pip3 install py4j
-RUN pip3 install pyspark
-RUN pip3 install numpy
-RUN pip3 install pandas
+
+RUN pip3 install --no-cache-dir \
+      wheel \
+      setuptools \
+      py4j \
+      pyspark \
+      numpy \
+      pandas
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       gcc \
       git-core \
       libffi-dev
 
-RUN pip3 install notebook
+RUN pip3 install --no-cache-dir notebook
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       libjpeg-dev \
@@ -40,7 +45,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       libxslt1.1\
       gnuplot
 
-RUN pip3 install matplotlib
+RUN pip3 install --no-cache-dir matplotlib
 
 HEALTHCHECK CMD curl -f http://localhost:9870/ || exit 1
 
