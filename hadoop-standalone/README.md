@@ -2,7 +2,7 @@
 ## Build standalone image
 
 ```bash
-docker build -t wxwmatt/hadoop-standalone:3.0.0-hadoop3.4.2-java11 . 
+docker build -t papaux/hadoop-standalone:3.0.0-hadoop3.4.2-java11 . 
 ```
 
 ## Run WordCount Job

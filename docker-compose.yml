@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: wxwmatt/hadoop-namenode:3.0.0-hadoop3.4.2-java11
+    image: papaux/hadoop-namenode:3.0.0-hadoop3.4.2-java11
     build:
       context: namenode
       dockerfile: Dockerfile
@@ -24,7 +24,7 @@ services:
       - ./hadoop.env
 
   datanode:
-    image: wxwmatt/hadoop-datanode:3.0.0-hadoop3.4.2-java11
+    image: papaux/hadoop-datanode:3.0.0-hadoop3.4.2-java11
     build:
       context: datanode
       dockerfile: Dockerfile
@@ -40,7 +40,7 @@ services:
       - ./hadoop.env
 
   resourcemanager:
-    image: wxwmatt/hadoop-resourcemanager:3.0.0-hadoop3.4.2-java11
+    image: papaux/hadoop-resourcemanager:3.0.0-hadoop3.4.2-java11
     build:
       context: resourcemanager
       dockerfile: Dockerfile
@@ -54,7 +54,7 @@ services:
       - ./hadoop.env
 
   nodemanager1:
-    image: wxwmatt/hadoop-nodemanager:3.0.0-hadoop3.4.2-java11
+    image: papaux/hadoop-nodemanager:3.0.0-hadoop3.4.2-java11
     build:
       context: nodemanager
       dockerfile: Dockerfile
@@ -68,7 +68,7 @@ services:
       - ./hadoop.env
 
   historyserver:
-    image: wxwmatt/hadoop-historyserver:3.0.0-hadoop3.4.2-java11
+    image: papaux/hadoop-historyserver:3.0.0-hadoop3.4.2-java11
     build:
       context: historyserver
       dockerfile: Dockerfile

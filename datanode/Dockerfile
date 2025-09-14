@@ -1,4 +1,4 @@
-FROM wxwmatt/hadoop-base:3.0.0-hadoop3.4.2-java11
+FROM papaux/hadoop-base:3.0.0-hadoop3.4.2-java11
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       python3.11

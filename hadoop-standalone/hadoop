@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -it -v `pwd`/jars:/jars -v `pwd`/res:/res -v `pwd`/data:/data wxwmatt/hadoop-standalone:3.0.0-hadoop3.4.2-java11 hadoop $@
+docker run --rm -it -v `pwd`/jars:/jars -v `pwd`/res:/res -v `pwd`/data:/data papaux/hadoop-standalone:3.0.0-hadoop3.4.2-java11 hadoop $@
